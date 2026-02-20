@@ -1,8 +1,29 @@
+/* ===================== DARK MODE ===================== */
+
+const toggleBtn = document.querySelector(".theme-toggle");
+
+// Apply saved theme on load
+if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+}
+
+toggleBtn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+
+    if (document.documentElement.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+});
+
+
+/* ===================== SEARCH & SUGGESTIONS ===================== */
+
 const input = document.querySelector('input[name="q"]');
 const suggestionsBox = document.querySelector(".suggestions");
 const wrapper = document.querySelector(".search-wrapper");
-const form = document.querySelector("form");
-
+const form = input.closest("form");
 
 const suggestionsData = [
     "openai",
@@ -33,12 +54,11 @@ function renderSuggestions(list) {
         div.classList.add("suggestion-item");
         div.textContent = item;
 
-        div.addEventListener("click", () => {
-            console.log("clicked suggestion");
+        div.addEventListener("mousedown", (e) => {
+            e.preventDefault();
             input.value = item;
             closeSuggestions();
             form.requestSubmit();
-            
         });
 
         suggestionsBox.appendChild(div);
