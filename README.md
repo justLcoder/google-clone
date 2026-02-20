@@ -6,6 +6,10 @@ A recreation of Google’s homepage built from scratch using HTML, CSS, and Java
 
 ![Google Clone Screenshot](assets/screenshot.png)
 
+## Live Demo
+
+https://justlcoder.github.io/google-clone/
+
 ## Features
 
 - Custom autocomplete system
