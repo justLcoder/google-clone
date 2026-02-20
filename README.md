@@ -1,6 +1,12 @@
 # Google Search Clone
 
-A recreation of Google’s homepage built from scratch using HTML, CSS, and JavaScript.
+## 📖 About This Project
+
+This project is a hands-on attempt to recreate the Google homepage from scratch.
+
+Instead of copying visually only, the goal was to understand how real interfaces are structured — including layout systems, state management, autocomplete behavior, and theme persistence.
+
+The project focuses on writing clean, framework-free HTML, CSS, and JavaScript.
 
 ## 📸 Screenshot
 
