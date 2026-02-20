@@ -2,6 +2,10 @@
 
 A recreation of Google’s homepage built from scratch using HTML, CSS, and JavaScript.
 
+## 📸 Screenshot
+
+![Google Clone Screenshot](assets/screenshot.png)
+
 ## Features
 
 - Custom autocomplete system
