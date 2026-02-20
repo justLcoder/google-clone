@@ -56,8 +56,10 @@
 
         <div class="search-area">
             <form action="https://www.google.com/search" method="get">
-                <input type="text" name="q" placeholder="Search Google..." autocomplete="off">
-                <div class="suggestions"></div>
+                <div class="search-wrapper">
+                    <input type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
+                    <div class="suggestions"></div>
+                </div>
                 <div class="buttons">
                     <button type="submit">Google Search</button>
                     <button type="button" id="luckyBtn">I'm Feeling Lucky</button>
@@ -68,9 +70,6 @@
     </main>
 
     <footer>
-        <div class="footer-top">
-            Uzbekistan
-        </div>
         <div class="footer-bottom">
             <div class="left-links">
                 <a href="#">About</a>

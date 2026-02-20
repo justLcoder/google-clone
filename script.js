@@ -1,29 +1,8 @@
-const toggleBtn = document.querySelector(".theme-toggle");
-
-toggleBtn.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-
-    if (document.documentElement.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
-});
-
-const luckyBtn = document.getElementById("luckyBtn");
-const searchInput = document.querySelector('input[name="q"]');
-
-luckyBtn.addEventListener("click", () => {
-    const query = searchInput.value.trim();
-
-    if (query !== "") {
-        window.location.href = 
-            `https://www.google.com/search?q=${encodeURIComponent(query)}&btnI=I`;
-    }
-});
-
 const input = document.querySelector('input[name="q"]');
 const suggestionsBox = document.querySelector(".suggestions");
+const wrapper = document.querySelector(".search-wrapper");
+const form = document.querySelector("form");
+
 
 const suggestionsData = [
     "openai",
@@ -45,31 +24,33 @@ function renderSuggestions(list) {
     currentIndex = -1;
 
     if (list.length === 0) {
-        suggestionsBox.style.display = "none";
-        input.classList.remove("active");
+        closeSuggestions();
         return;
     }
 
-    list.forEach(item => {
+    list.slice(0, 8).forEach(item => {
         const div = document.createElement("div");
         div.classList.add("suggestion-item");
         div.textContent = item;
 
         div.addEventListener("click", () => {
+            console.log("clicked suggestion");
             input.value = item;
             closeSuggestions();
+            form.requestSubmit();
+            
         });
 
         suggestionsBox.appendChild(div);
     });
 
     suggestionsBox.style.display = "block";
-    input.classList.add("active");
+    wrapper.classList.add("active");
 }
 
 function closeSuggestions() {
     suggestionsBox.style.display = "none";
-    input.classList.remove("active");
+    wrapper.classList.remove("active");
 }
 
 input.addEventListener("focus", () => {
@@ -94,7 +75,7 @@ input.addEventListener("input", () => {
 });
 
 document.addEventListener("click", (e) => {
-    if (!e.target.closest(".search-area")) {
+    if (!e.target.closest(".search-wrapper")) {
         closeSuggestions();
     }
 });

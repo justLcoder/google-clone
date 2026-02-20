@@ -1,3 +1,13 @@
+/* ===================== GLOBAL LAYOUT ===================== */
+
+/* ===================== BOX MODEL FIX ===================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -15,9 +25,11 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-top: 12vh;
 }
+
+/* ===================== LOGO ===================== */
 
 .logo {
     margin-bottom: 20px;
@@ -28,26 +40,78 @@ main {
     margin-bottom: 24px;
 }
 
-input[type="text"] {
+/* ===================== SEARCH COMPONENT ===================== */
+
+.search-wrapper {
+    position: relative;
     width: 500px;
     max-width: 90vw;
+    background: white;
+    border: 1px solid #dcdcdc;
+    border-radius: 24px;
+    transition: box-shadow 0.2s ease, border-radius 0.2s ease;
+}
+
+.search-wrapper:hover,
+.search-wrapper.active {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.search-wrapper.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-wrapper input {
+    width: 100%;
     height: 44px;
     padding: 0 20px;
     font-size: 16px;
-    border: 1px solid #dcdcdc;
-    border-radius: 24px;
+    border: none;
     outline: none;
-    transition: box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    background: transparent;
 }
 
-input[type="text"]:hover,
-input[type="text"]:focus {
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-    border-color: transparent;
+input:focus::placeholder {
+    color: transparent;
 }
+
+/* ===================== SUGGESTIONS DROPDOWN ===================== */
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+
+    border-bottom: 1px solid #dcdcdc;
+
+    border-radius: 0 0 24px 24px;
+    display: none;
+    overflow: hidden;
+    z-index: 10;
+
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    clip-path: inset(0px -10px -10px -10px);
+}
+
+.suggestion-item {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active {
+    background-color: #f1f3f4;
+}
+
+/* ===================== BUTTONS ===================== */
 
 .buttons {
     margin-top: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 .buttons button {
@@ -66,12 +130,7 @@ input[type="text"]:focus {
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
 
-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* ===================== HEADER ===================== */
 
 header {
     display: flex;
@@ -108,6 +167,8 @@ header {
     cursor: pointer;
 }
 
+/* ===================== THEME TOGGLE ===================== */
+
 .theme-toggle {
     background: none;
     border: none;
@@ -125,6 +186,8 @@ header {
 .icon-moon {
     display: inline;
 }
+
+/* ===================== FOOTER ===================== */
 
 footer {
     background-color: #f2f2f2;
@@ -153,17 +216,33 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* ===================== DARK MODE ===================== */
+
 .dark body {
     background-color: #202124;
     color: #e8eaed;
 }
 
-.dark input[type="text"] {
+/* Search wrapper dark */
+.dark .search-wrapper {
     background-color: #303134;
     border: 1px solid #5f6368;
-    color: #e8eaed;
 }
 
+/* Suggestions dark */
+.dark .suggestions {
+    background-color: #303134;
+    border-left: 1px solid #5f6368;
+    border-right: 1px solid #5f6368;
+    border-bottom: 1px solid #5f6368;
+}
+
+.dark .suggestion-item:hover,
+.dark .suggestion-item.active {
+    background-color: #3c4043;
+}
+
+/* Buttons dark */
 .dark .buttons button {
     background-color: #303134;
     border: 1px solid #303134;
@@ -174,6 +253,7 @@ footer a:hover {
     border: 1px solid #5f6368;
 }
 
+/* Header & footer dark */
 .dark .nav-right a {
     color: #e8eaed;
 }
@@ -186,6 +266,7 @@ footer a:hover {
     color: #9aa0a6;
 }
 
+/* Icons */
 .dark .icon-moon {
     display: none;
 }
@@ -197,33 +278,3 @@ footer a:hover {
 .dark .theme-toggle {
     color: #e8eaed;
 }
-
-.suggestions {
-    position: absolute;
-    top: 39%;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-radius: 0 0 24px 24px;
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-    border-color: transparent;
-    overflow: hidden;
-    display: none;
-    z-index: 10;
-}
-
-.suggestion-item {
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.suggestion-item:hover,
-.suggestion-item.active {
-    background-color: #f1f3f4;
-}
-
-input[type="text"].active {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}   
-
