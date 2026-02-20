@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-right">
+            <a href="#">Gmail</a>
+            <a href="#">Images</a>
+            <div class="apps">⋮⋮</div>
+            <div class="profile"></div>
+            <button class="theme-toggle" aria-label="Toggle theme">
+    <!-- Moon Icon -->
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24" width="20" height="20">
+    <path fill="currentColor"
+          d="M21.64 13.65a9 9 0 1 1-11.29-11.3
+             7 7 0 1 0 11.3 11.3z"/>
+    </svg>
+
+    <!-- Sun Icon -->
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 24 24" width="20" height="20">
+        <circle cx="12" cy="12" r="5" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="4"/>
+            <line x1="12" y1="20" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="4" y2="12"/>
+            <line x1="20" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+        </g>
+    </svg>
+</button>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="logo">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" 
+                    alt="Google Logo">
+        </div>
+
+        <div class="search-area">
+            <form action="https://www.google.com/search" method="get">
+                <input type="text" name="q" placeholder="Search Google..." autocomplete="off">
+                <div class="suggestions"></div>
+                <div class="buttons">
+                    <button type="submit">Google Search</button>
+                    <button type="button" id="luckyBtn">I'm Feeling Lucky</button>
+                </div> 
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            Uzbekistan
+        </div>
+        <div class="footer-bottom">
+            <div class="left-links">
+                <a href="#">About</a>
+                <a href="#">Advertising</a>
+                <a href="#">Business</a>
+                <a href="#">How Search works</a>
+            </div>
+            <div class="right-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Settings</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
